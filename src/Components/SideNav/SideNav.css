@@ -2,19 +2,44 @@
     position: fixed; 
     left:0;
     top: 0;
-    width: 75px;
+    width: 55px;
     height: 100vh;
     background-color: rgb(17, 17, 17, .5);
+    white-space: nowrap;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     font-size: 2em;
+
+    overflow: hidden;
+    transition: 1s;
+}
+
+.sideNav:hover{
+    width: 220px;
 }
 
 .sideNav .icon{
     margin: 20px;
+    font-size: 1em;
+    border-bottom: 3px solid transparent;
+}
+
+.buttonIcon{
     cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+    border: 0px;
+    font-size: .5em;
+
+    display: flex;
+    align-items: center;
+}
+
+.buttonIcon:hover .icon{
+    border-bottom: 3px solid rgb(188, 0, 0);
 }
