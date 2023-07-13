@@ -12,7 +12,7 @@ export default function LandingPage() {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
             .then(req => req.json())
             .then(req => {setMedia([...media, ...req.results])})
-    }, [page, media])
+    }, [page])
     
     const handleNextLoad = (e) => {
         if(e.currentTarget.scrollLeft>e.currentTarget.scrollWidth-(2*e.currentTarget.offsetWidth)){
