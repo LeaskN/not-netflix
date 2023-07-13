@@ -1,0 +1,53 @@
+.movieCard{
+  min-height: 300px;
+  min-width: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-height: 700px;
+  max-width: 385px;
+  background-color: var(--primary-color);
+  height: 800px;
+  padding: 30px;
+  border-radius: 30px;
+  margin: 10px;
+  height: 70vh;
+  width: 10vw;
+  cursor: pointer;
+  transition-property: color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 3s;
+}
+
+.movieCard:hover{
+  background-color: var(--overlay-color);
+  box-shadow: 0px 0px 5px 5px white;
+  transition: .3s ease;
+}
+
+.movieCard:hover .hoverText{
+  animation-delay: 1s;
+  color: white;
+  transition-delay: 5s;
+  transition: 3s ease;
+}
+
+.hoverText{
+  color: transparent;
+}
+
+.hoverText:hover {
+  color: var(--text-color);
+}
+
+
+.movieCard img{
+  object-fit: cover;
+  max-height: 700px;
+  max-width: 385px;
+}
+
+.movieCard h1{
+  text-align: center;
+}
