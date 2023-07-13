@@ -6,20 +6,25 @@ import './LandingPage.css';
 export default function LandingPage() {
     const [media, setMedia] = useState([]);
     const [page, setPage] = useState(1);
+    const [waitingPeriod, setWait] = useState(0);
     const scrollRef = SidewaysScroll();
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
             .then(req => req.json())
             .then(req => {setMedia([...media, ...req.results])})
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+            
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
     
     const handleNextLoad = (e) => {
-        if(e.currentTarget.scrollLeft>e.currentTarget.scrollWidth-(2*e.currentTarget.offsetWidth)){
+        if(waitingPeriod === 0 && e.currentTarget.scrollLeft>e.currentTarget.scrollWidth-(2*e.currentTarget.offsetWidth)){
             console.log(page)
             setPage(page+1);
+            setWait(5000)
+            setTimeout(() => {  
+                setWait(0) 
+            }, 1000);
         }
     }
 
