@@ -12,6 +12,8 @@ export default function LandingPage() {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
             .then(req => req.json())
             .then(req => {setMedia([...media, ...req.results])})
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
     
     const handleNextLoad = (e) => {
