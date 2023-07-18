@@ -1,5 +1,7 @@
 .categoryContainerWrapper{
   position: relative;
+  padding-left: 30px;
+  margin-top: 30px;
 }
 .categoryContainer{
   height: 168.75px;
