@@ -3,7 +3,7 @@ import './CardsContainer.css'
 import { FaInfoCircle } from "react-icons/fa";
 import YouTubeEmbed from '../../YouTubeEmbed/YouTubeEmbed';
 
-export default function CardsContainer({ media, path}) {
+export default function CardsContainer({ media, category}) {
 
   const mediaBackdrop = media.backdrop_path == null ? '' : `https://image.tmdb.org/t/p/original/${media.backdrop_path}`;
   const maturityRatingUrl = media.media_type === 'tv' ?
@@ -18,7 +18,8 @@ export default function CardsContainer({ media, path}) {
         if (req.results) {
           for (let i = 0; i < req?.results?.length; i++) {
             if (req.results[i].iso_3166_1 === 'US') {
-              return media.media_type === 'movie' ? req?.results?.[i]?.release_dates?.[0]?.certification || 'No Rating' :  req?.results?.[i]?.rating || 'No Rating';
+              if(category.title === 'Comedy Movies')console.log(media.media_type !== 'movie')
+              return media.media_type === 'tb' ? req?.results?.[i]?.rating || 'No Rating' : req?.results?.[i]?.release_dates?.[0]?.certification || 'No Rating' ;
             }
           }
           return req?.results?.[0]?.release_dates?.[0]?.certification || 'No Rating';
