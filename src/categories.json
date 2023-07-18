@@ -20,10 +20,6 @@
     "path": "https://api.themoviedb.org/3/movie/popular?"
   },
   {
-    "title": "Comedy Shows",
-    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=28&"
-  },
-  {
     "title": "All-Time Popular",
     "path": "https://api.themoviedb.org/3/movie/popular?"
   }
