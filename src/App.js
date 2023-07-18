@@ -6,7 +6,15 @@ import SideNav from './Components/SideNav/SideNav';
 function App() {
   return (
     <div className="App">
-      <SideNav />
+      {/* <SideNav /> */}
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
       <Category />
       <Category />
       {/* <ScrollButtonRight /> */}

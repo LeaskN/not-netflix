@@ -26,13 +26,13 @@ export default function Category() {
     }
 
     const handleClick = (e) => {
-
         //scrollRight
         if(e.currentTarget.previousSibling.className === 'categoryContainer'){
             let totalLength = e.currentTarget.previousSibling.scrollWidth;
             let viewWidth = e.currentTarget.previousSibling.offsetWidth;
             setScrolledLength(scrolledLength + viewWidth);
             console.log(scrolledLength)
+            document.getElementById('scrollLeft').style.display = 'flex';
             if(totalLength - scrolledLength < viewWidth*3){
                 handleNextLoad();
             }
@@ -43,12 +43,14 @@ export default function Category() {
         //scrollLeft
         } else if(e.currentTarget.nextSibling.className === 'categoryContainer' 
         && e.currentTarget.nextSibling.style.transform.match(/-?\d*\.{0,1}\d+/) < 0){
-            let totalLength = e.currentTarget.nextSibling.scrollWidth;
             let viewWidth = e.currentTarget.nextSibling.offsetWidth;
             setScrolledLength(scrolledLength - viewWidth);
-            console.log(scrolledLength)
-            if(scrolledLength <= 0 ){
+            console.log('sl', scrolledLength, 'vw', viewWidth)
+            if(scrolledLength < viewWidth ){
                 return
+            }
+            if(scrolledLength === viewWidth ){
+                document.getElementById('scrollLeft').style.display = 'none';
             }
             let currTrans = e.currentTarget.nextSibling.style.transform.match(/-?\d*\.{0,1}\d+/);
             currTrans = currTrans === null ? 0 : Number(currTrans[0])
@@ -60,9 +62,9 @@ export default function Category() {
 
     return (
         <div className='categoryContainerWrapper'>
-            
             <h1>Trending</h1>
             <span className='scrollButton scrollLeft'
+                id='scrollLeft'
                 onClick={handleClick}
                 // onClick={() => {
                 //     SideScroll(contentWrapper.current, 25, 100, -10);

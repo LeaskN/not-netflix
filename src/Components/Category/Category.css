@@ -1,3 +1,6 @@
+.categoryContainerWrapper{
+  position: relative;
+}
 .categoryContainer{
   height: 168.75px;
   display: flex;
@@ -6,14 +9,38 @@
   transform: 0%;
 }
 
+.categoryContainer:hover .scrollButton{
+  display:block;
+}
+
 .scrollButton{
   position: relative;
-  background-color: green;
-  justify-self: end;
   font-size: 18px;
+  z-index: 1000;
+  display: flex;
+  cursor: pointer;
+  height: 168.75px;
+  background-color: rgba(0, 0, 0, .8);
+  justify-content: center;
+  align-items: center;
+  width: 40px;
 }
+
 .scrollRight{
-  position: relative;
-  align-self: center;
-  left: 100px;
+  position: absolute;
+  right: 0px;
+  display: flex;
+  top: 44px;
+}
+
+.scrollLeft{
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  display: none;
+}
+
+.scrollButton:hover{
+  width: 70px;
+  transition: .3s ease;
 }
