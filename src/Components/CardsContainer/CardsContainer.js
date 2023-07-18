@@ -25,10 +25,11 @@ export default function CardsContainer({movie}) {
   return (
     <div className='movieCard' key={Math.random(1) * 10000000}>
       <img alt='movieBackdrop' src={movieBackdrop} />
-      <div className='topLeft'>{maturityRating}</div>
-      <div className='topRight'>{Math.round(movie.vote_average)}/10</div>
-      <div className='bottomLeft'>{movie.release_date?.slice(0,4)}</div>
-      <div className='bottomRight'>{movie.release_date?.slice(0,4)}</div>
+      <div className='cornerText topLeft'>{maturityRating}</div>
+      <div className='cornerText topRight'>{Math.round(movie.vote_average)}/10</div>
+      <div className='cornerText bottomLeft'>{movie.release_date?.slice(0,4)}</div>
+      <div className='cornerText bottomRight'>{movie.release_date?.slice(0,4)}</div>
+      <div className='cornerText title'>{movie.title}</div>
       {/* <p className='hoverText'>{movie.overview}</p> */}
     </div>
   )

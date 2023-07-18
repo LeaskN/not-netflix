@@ -1,6 +1,19 @@
 .categoryContainer{
-  height: 268.75px;
+  height: 168.75px;
   display: flex;
   align-items: flex-start;
-  overflow-x: hidden;
+  transition: .3s ease;
+  transform: 0%;
+}
+
+.scrollButton{
+  position: relative;
+  background-color: green;
+  justify-self: end;
+  font-size: 18px;
+}
+.scrollRight{
+  position: relative;
+  align-self: center;
+  left: 100px;
 }
