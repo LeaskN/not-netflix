@@ -1,12 +1,12 @@
 .video-responsive {
   overflow: hidden;
   height: 168.75px;
+  width: 303px;
 }
 
 .video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 168.75px;
-  width: 300px;
   position: absolute;
+  width: 313px;
+  height: 175px;
+  border: 0px;
 }

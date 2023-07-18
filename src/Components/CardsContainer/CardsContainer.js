@@ -4,12 +4,22 @@ import { FaInfoCircle } from "react-icons/fa";
 import YouTubeEmbed from '../../YouTubeEmbed/YouTubeEmbed';
 
 export default function CardsContainer({ media, category}) {
-
+  const [hover, setHover] = useState(false);
   const mediaBackdrop = media.backdrop_path == null ? '' : `https://image.tmdb.org/t/p/original/${media.backdrop_path}`;
   const maturityRatingUrl = media.media_type === 'tv' ?
   `https://api.themoviedb.org/3/tv/${media.id}/content_ratings?&api_key=fed5b7c4a0fea83e14866a8dd8cb6baa` :
     `https://api.themoviedb.org/3/movie/${media.id}/release_dates?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa` 
   const [maturityRating, setMaturityRating] = useState('');
+
+  const handleMouseEnter = () => {
+    setHover(true);
+    console.log(hover)
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+    console.log(hover)
+  };
 
   useEffect(() => {
     fetch(maturityRatingUrl)
@@ -32,8 +42,12 @@ export default function CardsContainer({ media, category}) {
 
   return (
     mediaBackdrop === '' ? '' :
-    <div className='movieCard' key={Math.random(1) * 10000000}>
-      {mediaBackdrop === '' ? console.log(media) : ''}
+    <div 
+      className='movieCard' 
+      key={Math.random(1) * 10000000}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {mediaBackdrop === '' ? '' : <img alt='mediaBackdrop' loading="lazy" src={mediaBackdrop || 'loading'} />}
       <div className='cornerText topLeft'>{maturityRating}</div>
       <div className='cornerText topRight'>{Math.round(media.vote_average)}/10</div>

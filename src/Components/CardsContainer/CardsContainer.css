@@ -3,11 +3,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   min-width: 300px; 
   height: 168.75px;
-  position: relative;
   padding: 2.5px;
-  overflow: hidden;
 }
 
 .movieCard:hover{
@@ -66,10 +66,8 @@
 
 .movieCard:hover .hiddenInfo{
   top: 0px;  
-  animation-delay: 1s;
   color: white;
-  transition-delay: 5s;
-  transition: .3s ease;
+  transition: 1s ease;
 }
 
 .movieCard:hover .hiddenInfo{
@@ -86,7 +84,6 @@
   position: absolute;
   top: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .movieCard img{
