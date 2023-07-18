@@ -7,6 +7,7 @@
   height: 168.75px;
   position: relative;
   padding: 2.5px;
+  overflow: hidden;
 }
 
 .movieCard:hover{
@@ -53,29 +54,40 @@
   font-weight: bolder;
 }
 
-.hoverText{
-  position: relative !important;
-  z-index: 10000 !important;
-}
-
-.movieCard:hover .hoverText{
+/* .movieCard:hover .hoverText{
   animation-delay: 1s;
   color: white;
   transition-delay: 5s;
   transition: .3s ease;
   position: relative;
   z-index: 1000;
-  /* overflow: auto; */
-}
-
-/* .hoverText{
-  color: transparent;
+  overflow: auto;
 } */
 
-.hoverText:hover {
-  color: var(--text-color);
+.movieCard:hover .hiddenInfo{
+  top: 0px;  
+  animation-delay: 1s;
+  color: white;
+  transition-delay: 5s;
+  transition: .3s ease;
 }
 
+.movieCard:hover .hiddenInfo{
+  overflow: hidden;
+  border-radius: 5px;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.hiddenInfo{
+  color: var(--text-color);
+  background-color: var(--overlay-color);
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 .movieCard img{
   height: 168.75px;
@@ -86,6 +98,10 @@
 
 .movieCard h1{
   text-align: center;
+}
+
+.infoButton{
+  filter:drop-shadow(0px 0px 1px black)
 }
 
 .infoButton:hover{

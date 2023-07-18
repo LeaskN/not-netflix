@@ -25,10 +25,9 @@ html, body{
   font-size: large;
 }
 
-/* .App{
-  padding-left: 100px;
-} */
-
+.fa-infoCircle{
+  filter:drop-shadow(20px 10px 1px red)
+}
 
 [data-theme="light"] {
   --bg-color: #ffffff;

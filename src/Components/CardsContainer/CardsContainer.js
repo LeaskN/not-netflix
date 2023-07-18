@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './CardsContainer.css'
 import { FaInfoCircle } from "react-icons/fa";
-
+import YouTubeEmbed from '../../YouTubeEmbed/YouTubeEmbed';
 
 export default function CardsContainer({ media, path}) {
 
@@ -30,7 +30,7 @@ export default function CardsContainer({ media, path}) {
   }, [])
 
   return (
-    mediaBackdrop === '' ?'' :
+    mediaBackdrop === '' ? '' :
     <div className='movieCard' key={Math.random(1) * 10000000}>
       {mediaBackdrop === '' ? console.log(media) : ''}
       {mediaBackdrop === '' ? '' : <img alt='mediaBackdrop' loading="lazy" src={mediaBackdrop || 'loading'} />}
@@ -39,7 +39,10 @@ export default function CardsContainer({ media, path}) {
       <div className='cornerText bottomLeft'>{media?.release_date?.slice(0, 4) || media?.first_air_date?.slice(0, 4)}</div>
       <div className='cornerText bottomRight'>{<FaInfoCircle className='infoButton bounce'/>}</div>
       <div className='cornerText title'>{media.title || media.name}</div>
-      {/* <p className='hoverText'>{media.overview}</p> */}
+      {/* <p className='hiddenInfo'>{media.overview}</p> */}
+      <div className='hiddenInfo' >
+        <YouTubeEmbed embedId="dQw4w9WgXcQ" />
+      </div>
     </div>
   )
 }
