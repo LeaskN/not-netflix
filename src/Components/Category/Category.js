@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import CardsContainer from '../CardsContainer/CardsContainer';
-import SideScroll from '../../Functionality/SideScroll';
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import './Category.css';
@@ -9,7 +8,6 @@ export default function Category() {
     const contentWrapper = React.useRef(null);
     const [media, setMedia] = useState([]);
     const [page, setPage] = useState(1);
-    const [waitingPeriod, setWait] = useState(0);
     const [scrolledLength, setScrolledLength] = useState(0);
     const [leftScrollShow, setLeftScrollShow] = useState(0);
 

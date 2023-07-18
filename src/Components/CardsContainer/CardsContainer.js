@@ -20,6 +20,7 @@ export default function CardsContainer({movie}) {
         return req.results[0];
       })
       .then(req => setMaturityRating(req))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
