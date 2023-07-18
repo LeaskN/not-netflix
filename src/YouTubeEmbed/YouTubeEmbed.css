@@ -10,3 +10,11 @@
   height: 175px;
   border: 0px;
 }
+
+.spinnerContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width: 100%;
+}

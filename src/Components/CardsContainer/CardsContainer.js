@@ -5,6 +5,9 @@ import YouTubeEmbed from '../../YouTubeEmbed/YouTubeEmbed';
 
 export default function CardsContainer({ media, category}) {
   const [hover, setHover] = useState(false);
+  const [embedId, setEmbedId] = useState('');
+
+  const trailerFetchUrl = `https://api.themoviedb.org/3/movie/${media.id}/videos?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&language=en-US`
   const mediaBackdrop = media.backdrop_path == null ? '' : `https://image.tmdb.org/t/p/original/${media.backdrop_path}`;
   const maturityRatingUrl = media.media_type === 'tv' ?
   `https://api.themoviedb.org/3/tv/${media.id}/content_ratings?&api_key=fed5b7c4a0fea83e14866a8dd8cb6baa` :
@@ -13,13 +16,27 @@ export default function CardsContainer({ media, category}) {
 
   const handleMouseEnter = () => {
     setHover(true);
-    console.log(hover)
   };
 
   const handleMouseLeave = () => {
     setHover(false);
-    console.log(hover)
   };
+
+  useEffect(() => {
+    fetch(trailerFetchUrl)
+      .then(req => req.json())
+      .then(req => {
+        if(req?.results?.length > 0){
+          for(let i = 0; i < req.results.length; i++){
+            if(req.results[i].type === 'Trailer'){
+              return req.results[i].key;
+            }
+          }
+        }
+        return req?.results?.[0]?.key || 'ERROR';
+      })
+      .then(req => setEmbedId(req));
+  },[])
 
   useEffect(() => {
     fetch(maturityRatingUrl)
@@ -28,7 +45,6 @@ export default function CardsContainer({ media, category}) {
         if (req.results) {
           for (let i = 0; i < req?.results?.length; i++) {
             if (req.results[i].iso_3166_1 === 'US') {
-              if(category.title === 'Comedy Movies')console.log(media.media_type !== 'movie')
               return media.media_type === 'tb' ? req?.results?.[i]?.rating || 'No Rating' : req?.results?.[i]?.release_dates?.[0]?.certification || 'No Rating' ;
             }
           }
@@ -56,7 +72,7 @@ export default function CardsContainer({ media, category}) {
       <div className='cornerText title'>{media.title || media.name}</div>
       {/* <p className='hiddenInfo'>{media.overview}</p> */}
       <div className='hiddenInfo' >
-        <YouTubeEmbed embedId="dQw4w9WgXcQ" />
+        {hover ? <YouTubeEmbed embedId={embedId} /> : 'loading'}
       </div>
     </div>
   )
