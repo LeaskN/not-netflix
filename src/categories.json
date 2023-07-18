@@ -17,7 +17,7 @@
   },
   {
     "title": "Action Movies",
-    "path": "https://api.themoviedb.org/3/movie/popular?"
+    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=28&"
   },
   {
     "title": "All-Time Popular",
