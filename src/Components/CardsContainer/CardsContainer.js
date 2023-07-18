@@ -21,7 +21,6 @@ export default function CardsContainer({ media }) {
           }
           return req.results[0].release_dates[0].certification;
         }
-        console.log(req)
         return 'N/A';
       })
       .then(req => setMaturityRating(req))
