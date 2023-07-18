@@ -11,6 +11,7 @@ export default function Category() {
     const [page, setPage] = useState(1);
     const [waitingPeriod, setWait] = useState(0);
     const [scrolledLength, setScrolledLength] = useState(0);
+    const [leftScrollShow, setLeftScrollShow] = useState(0);
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
@@ -31,8 +32,7 @@ export default function Category() {
             let totalLength = e.currentTarget.previousSibling.scrollWidth;
             let viewWidth = e.currentTarget.previousSibling.offsetWidth;
             setScrolledLength(scrolledLength + viewWidth);
-            console.log(scrolledLength)
-            document.getElementById('scrollLeft').style.display = 'flex';
+            setLeftScrollShow(true);
             if(totalLength - scrolledLength < viewWidth*3){
                 handleNextLoad();
             }
@@ -45,12 +45,11 @@ export default function Category() {
         && e.currentTarget.nextSibling.style.transform.match(/-?\d*\.{0,1}\d+/) < 0){
             let viewWidth = e.currentTarget.nextSibling.offsetWidth;
             setScrolledLength(scrolledLength - viewWidth);
-            console.log('sl', scrolledLength, 'vw', viewWidth)
             if(scrolledLength < viewWidth ){
                 return
             }
             if(scrolledLength === viewWidth ){
-                document.getElementById('scrollLeft').style.display = 'none';
+                setLeftScrollShow(false);
             }
             let currTrans = e.currentTarget.nextSibling.style.transform.match(/-?\d*\.{0,1}\d+/);
             currTrans = currTrans === null ? 0 : Number(currTrans[0])
@@ -63,23 +62,21 @@ export default function Category() {
     return (
         <div className='categoryContainerWrapper'>
             <h1>Trending</h1>
-            <span className='scrollButton scrollLeft'
-                id='scrollLeft'
+            {leftScrollShow ? <span className='scrollButton scrollLeft'
                 onClick={handleClick}
-                // onClick={() => {
-                //     SideScroll(contentWrapper.current, 25, 100, -10);
-                // }}
-            ><FaChevronLeft /></span>
-            <div onScroll={handleNextLoad} className='categoryContainer' ref={contentWrapper}>
+                key={Math.random(1) * 10000000}
+            ><FaChevronLeft /></span> : ''}
+            
+
+            <div className='categoryContainer' ref={contentWrapper}>
                 {media.map((movie) =>
-                    <CardsContainer key={Math.random(1) * 10000000} movie={movie} />
+                    <CardsContainer key={Math.random(1) * 616818161} movie={movie} />
                 )}
             </div>
+
             <span className='scrollButton scrollRight'
                     onClick={handleClick}
-                // onClick={() => {
-                    // SideScroll(contentWrapper.current, 25, 100, 10);
-                // }}
+                    key={Math.random(1) * 10000000}
             ><FaChevronRight /></span>
         </div>
     )
