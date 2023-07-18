@@ -69,7 +69,7 @@ export default function Category({category}) {
 
             <div className='categoryContainer' ref={contentWrapper}>
                 {media.map((media) =>
-                    <CardsContainer key={Math.random(1) * 10000000} media={media} path={category.path}/>
+                    <CardsContainer key={Math.random(1) * 10000000} media={media} category={category}/>
                 )}
             </div>
 
