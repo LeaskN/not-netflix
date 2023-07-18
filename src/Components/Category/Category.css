@@ -1,0 +1,6 @@
+.categoryContainer{
+  height: 268.75px;
+  display: flex;
+  align-items: flex-start;
+  overflow-x: hidden;
+}

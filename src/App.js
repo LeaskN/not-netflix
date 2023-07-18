@@ -1,5 +1,5 @@
 import './App.css';
-import LandingPage from './Components/LandingPage/LandingPage';
+import Category from './Components/Category/Category';
 import SideNav from './Components/SideNav/SideNav';
 // import ScrollButtonRight from './Components/ScrollButtonRight/ScrollButtonRight';
 
@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
       <SideNav />
-      <LandingPage />
+      <Category />
+      <Category />
       {/* <ScrollButtonRight /> */}
     </div>
   );
