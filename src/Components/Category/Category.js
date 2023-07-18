@@ -4,7 +4,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import './Category.css';
 
-export default function Category() {
+export default function Category({category}) {
     const contentWrapper = React.useRef(null);
     const [media, setMedia] = useState([]);
     const [page, setPage] = useState(1);
@@ -12,7 +12,8 @@ export default function Category() {
     const [leftScrollShow, setLeftScrollShow] = useState(0);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
+        fetch(`${category.path}api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
+        // fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=fed5b7c4a0fea83e14866a8dd8cb6baa&page=${page}`)
             .then(req => req.json())
             .then(req => { setMedia([...media, ...req.results]) })
 
@@ -59,7 +60,7 @@ export default function Category() {
 
     return (
         <div className='categoryContainerWrapper'>
-            <h1>Trending</h1>
+            <h1>{category.title}: </h1>
             {leftScrollShow ? <span className='scrollButton scrollLeft'
                 onClick={handleClick}
                 key={Math.random(1) * 10000000}
@@ -68,7 +69,7 @@ export default function Category() {
 
             <div className='categoryContainer' ref={contentWrapper}>
                 {media.map((media) =>
-                    <CardsContainer key={Math.random(1) * 616818161} media={media} />
+                    <CardsContainer key={Math.random(1) * 10000000} media={media} path={category.path}/>
                 )}
             </div>
 

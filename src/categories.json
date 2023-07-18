@@ -1,0 +1,30 @@
+[
+  {
+    "title": "What's Trending",
+    "path": "https://api.themoviedb.org/3/trending/all/week?"
+  },
+  {
+    "title": "Comedy Movies",
+    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=35&"
+  },
+  {
+    "title": "Documentaries",
+    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=99&"
+  },
+  {
+    "title": "Romance Movies",
+    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=10749&"
+  },
+  {
+    "title": "Action Movies",
+    "path": "https://api.themoviedb.org/3/movie/popular?"
+  },
+  {
+    "title": "Comedy Shows",
+    "path": "https://api.themoviedb.org/3/discover/movie?with_genres=28&"
+  },
+  {
+    "title": "All-Time Popular",
+    "path": "https://api.themoviedb.org/3/movie/popular?"
+  }
+]

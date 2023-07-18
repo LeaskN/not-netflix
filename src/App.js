@@ -1,20 +1,13 @@
 import './App.css';
 import Category from './Components/Category/Category';
-// import ScrollButtonRight from './Components/ScrollButtonRight/ScrollButtonRight';
+import categories from './categories.json';
 
 function App() {
   return (
     <div className="App">
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
+      {
+        categories.map(category => <Category category={category} key={Math.random(1) * 10000000}/>)
+      }
     </div>
   );
 }
