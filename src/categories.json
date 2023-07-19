@@ -20,7 +20,7 @@
     "path": "https://api.themoviedb.org/3/discover/movie?with_genres=28&"
   },
   {
-    "title": "All-Time Popular",
+    "title": "Popular",
     "path": "https://api.themoviedb.org/3/movie/popular?"
   }
 ]
