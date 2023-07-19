@@ -36,7 +36,7 @@ export default function CardsContainer({ media, category}) {
         return req?.results?.[0]?.key || 'ERROR';
       })
       .then(req => setEmbedId(req));
-  },[])
+  }, [trailerFetchUrl])
 
   useEffect(() => {
     fetch(maturityRatingUrl)
@@ -53,8 +53,7 @@ export default function CardsContainer({ media, category}) {
         return 'No Rating';
       })
       .then(req => setMaturityRating(req))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [maturityRatingUrl])
 
   return (
     mediaBackdrop === '' ? '' :
