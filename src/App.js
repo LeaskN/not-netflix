@@ -8,7 +8,7 @@ import { Container, Col, Row } from "react-bootstrap";
 function App() {
   const userLogin = false;
   return (
-    userLogin ?
+    !userLogin ?
       <div className="App">
         {
           categories.map(category => <Category category={category} key={Math.random(1) * 10000000} />)
