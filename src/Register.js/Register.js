@@ -70,7 +70,7 @@ export default function Register() {
         {register === true ? (
           <p className="text-success">You Are Registered Successfully</p>
         ) : (
-          register === false > 0 ?
+          register === false ?
             <p className="text-danger">You Are Not Registered</p>
             : ''
         )}

@@ -75,7 +75,7 @@ export default function Login() {
         {login === true ? (
           <p className="text-success">You Are Registered Successfully</p>
         ) : (
-          login === false > 0 ?
+          login === false ?
             <p className="text-danger">You Are Not Registered</p>
             : ''
         )}
