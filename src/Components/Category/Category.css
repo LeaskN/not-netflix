@@ -3,10 +3,13 @@
   padding-left: 30px;
   margin-top: 30px;
 }
+.categoryContainerWrapper h1{
+  font-size: 40px;
+}
 .categoryContainer{
   height: 168.75px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   transition: .3s ease;
   transform: 0%;
 }
@@ -32,13 +35,13 @@
   position: absolute;
   right: 0px;
   display: flex;
-  top: 44px;
+  top: 57px;
 }
 
 .scrollLeft{
   position: absolute;
   left: 0px;
-  top: 44px;
+  top: 57px;
   z-index: 1000;
 }
 
